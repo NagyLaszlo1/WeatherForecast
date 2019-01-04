@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agents;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace WeatherForecast
         public MainWindow()
         {
             InitializeComponent();
+
+            DarkSkyAgent dsAgents = new DarkSkyAgent();
+            ForecastResult fcResult = dsAgents.GetForecast(37.8267, -122.4233);
         }
     }
 }
