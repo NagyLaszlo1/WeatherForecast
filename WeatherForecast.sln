@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DarkSkyAgent", "DarkSkyAgen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecastInfrastructure", "WeatherForecastInfrastructure\WeatherForecastInfrastructure.csproj", "{CE403C9E-8923-4C6B-99A1-BAEC7EEB1775}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherForecast.Models", "WeatherForecast.Models\WeatherForecast.Models.csproj", "{19662B0B-F049-4244-ACEF-7800FA263ACB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{CE403C9E-8923-4C6B-99A1-BAEC7EEB1775}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE403C9E-8923-4C6B-99A1-BAEC7EEB1775}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE403C9E-8923-4C6B-99A1-BAEC7EEB1775}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19662B0B-F049-4244-ACEF-7800FA263ACB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19662B0B-F049-4244-ACEF-7800FA263ACB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19662B0B-F049-4244-ACEF-7800FA263ACB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19662B0B-F049-4244-ACEF-7800FA263ACB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

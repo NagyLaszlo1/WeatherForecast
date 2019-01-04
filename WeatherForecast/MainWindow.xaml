@@ -7,7 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <Label Content="Város" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left"   
+                  Margin="100,20,0,0"   
+                  VerticalAlignment="Top"   
+                  Width="120"   
+                  ItemsSource="{Binding Path=Cities}"    
+                  SelectedItem="{Binding Path=City}"  
+                  DisplayMemberPath="Name"/>
+        
+        
         <TextBox Name="tbResult" HorizontalAlignment="Left" Height="135" Margin="85,99,0,0" TextWrapping="Wrap" AcceptsReturn="True" Text="TextBox" VerticalAlignment="Top" Width="137"/>
+        
 
     </Grid>
 </Window>

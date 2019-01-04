@@ -57,6 +57,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +103,10 @@
     <ProjectReference Include="..\DarkSkyAgent\DarkSkyAgent.csproj">
       <Project>{dfa72646-9471-4219-8686-4d31932e5146}</Project>
       <Name>DarkSkyAgent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeatherForecast.Models\WeatherForecast.Models.csproj">
+      <Project>{19662b0b-f049-4244-acef-7800fa263acb}</Project>
+      <Name>WeatherForecast.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\WeatherForecastInfrastructure\WeatherForecastInfrastructure.csproj">
       <Project>{ce403c9e-8923-4c6b-99a1-baec7eeb1775}</Project>

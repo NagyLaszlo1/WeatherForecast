@@ -13,6 +13,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WeatherForecast.Models;
+using WeatherForecast.ViewModels;
 
 namespace WeatherForecast
 {
@@ -21,13 +23,15 @@ namespace WeatherForecast
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainViewModel mainViewModel;
         public MainWindow()
         {
             InitializeComponent();
 
-            DarkSkyAgent dsAgents = new DarkSkyAgent();
-            ForecastResult fcResult = dsAgents.GetForecast(37.8267, -122.4233);
-            
+            mainViewModel = new MainViewModel(new WeatherForecastModel()); // TODO - Dependency injection
+            this.DataContext = mainViewModel;
+
+            mainViewModel.Init();
         }
     }
 }
