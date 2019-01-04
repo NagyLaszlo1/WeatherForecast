@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DailyData.cs" />
     <Compile Include="DarkSkyAgent.cs" />
+    <Compile Include="ForecastData.cs" />
     <Compile Include="ForecastResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
