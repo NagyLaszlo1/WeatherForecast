@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agents;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,5 +12,6 @@ namespace WeatherForecast.Models
     public interface IWeatherForecastModel
     {
         ObservableCollection<City> ListCities();
+        ForecastResult LoadWeatherForecast(double lat, double lon);
     }
 }

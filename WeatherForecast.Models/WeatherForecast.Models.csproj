@@ -46,6 +46,15 @@
     <Compile Include="WeatherForecastModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\DarkSkyAgent\DarkSkyAgent.csproj">
+      <Project>{dfa72646-9471-4219-8686-4d31932e5146}</Project>
+      <Name>DarkSkyAgent</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WeatherForecastInfrastructure\WeatherForecastInfrastructure.csproj">
+      <Project>{ce403c9e-8923-4c6b-99a1-baec7eeb1775}</Project>
+      <Name>WeatherForecastInfrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

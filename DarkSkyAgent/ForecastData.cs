@@ -27,6 +27,14 @@ namespace Agents
 
         [JsonProperty(PropertyName = "uvIndex")]
         public double UVIndex { get; set; }
+
+        public string IconPath
+        {
+            get
+            {
+                return $"Images/{Icon}.png";
+            }
+        }
     }
 
 

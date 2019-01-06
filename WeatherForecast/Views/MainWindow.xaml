@@ -1,0 +1,116 @@
+﻿<Window x:Class="WeatherForecast.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WeatherForecast"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <Label Content="City" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <ComboBox HorizontalAlignment="Left"   
+             Margin="10,0,0,0"
+                  VerticalAlignment="Center"   
+                  Width="120"   
+                  ItemsSource="{Binding Path=Cities}"    
+                  SelectedItem="{Binding Path=SelectedCity}"  
+                  DisplayMemberPath="Name"/>
+            <Button Content="Go" 
+                    Margin="10,0,0,0"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Center" 
+                Width="75"
+                Command="{Binding WeatherRequestCommand}"/>
+        </StackPanel>
+        
+        <Label Grid.Row="1" 
+               Content="Current Temperature" 
+               Margin="10,0,0,0" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Center" 
+               FontSize="16" 
+               FontWeight="Bold"/>
+
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Temperature" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                <Label Content="{Binding Path=CurrentForecastData.Temperature}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <Image Source="{Binding Path=CurrentForecastData.IconPath}" Width="50" Height="50" />
+            </StackPanel>
+            
+            <Label Grid.Row="1" Grid.Column="0" Content="Apparent temperature" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentForecastData.ApparentTemperature}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Atmospheric pressure" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Grid.Row="2" Grid.Column="1" Content="{Binding Path=CurrentForecastData.Pressure}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Wind speed" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=CurrentForecastData.WindSpeed}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="4" Grid.Column="0" Content="Humidity" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Grid.Row="4" Grid.Column="1" Content="{Binding Path=CurrentForecastData.Humidity}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Content="UV index" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Label Grid.Row="5" Grid.Column="1" Content="{Binding Path=CurrentForecastData.UVIndex}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+        </Grid>
+
+        <Label Grid.Row="3" 
+               Content="Daily Temperature" 
+               Margin="10,0,0,0" 
+               HorizontalAlignment="Left" 
+               VerticalAlignment="Center" 
+               FontSize="16" 
+               FontWeight="Bold"/>
+
+        <DataGrid 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            ItemsSource="{Binding DailyForecastData}" 
+            Grid.Row="4"
+            Margin="10,0,0,0"
+            AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding IconPath}" Width="50" Height="50" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Temperature" Binding="{Binding Temperature}" />
+                <DataGridTextColumn Header="Apparent temperature" Binding="{Binding ApparentTemperature}" />
+                <DataGridTextColumn Header="Atmospheric pressure" Binding="{Binding Pressure}" />
+                <DataGridTextColumn Header="Wind speed" Binding="{Binding WindSpeed}" />
+                <DataGridTextColumn Header="Humidity" Binding="{Binding Humidity}" />
+                <DataGridTextColumn Header="UV index" Binding="{Binding UVIndex}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+    </Grid>
+</Window>

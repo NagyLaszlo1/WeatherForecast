@@ -28,7 +28,7 @@ namespace WeatherForecast
         {
             InitializeComponent();
 
-            mainViewModel = new MainViewModel(new WeatherForecastModel()); // TODO - Dependency injection
+            mainViewModel = new MainViewModel(new WeatherForecastModel(new DarkSkyAgent())); // TODO - Dependency injection
             this.DataContext = mainViewModel;
 
             mainViewModel.Init();

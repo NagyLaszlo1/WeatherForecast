@@ -10,13 +10,13 @@ using WeatherForecastInfrastructure;
 
 namespace Agents
 {
-    public class DarkSkyAgent
+    public class DarkSkyAgent : IDarkSkyAgent
     {
         public ForecastResult GetForecast(double lat, double lon)
         {
             ForecastResult result = null;
             //"https://api.darksky.net/forecast/82d6033efe051b1620778e61c8901f3c/37.8267,-122.4233";
-            string url = $"{ConfigHelper.GetDarkSkyUrl()}/{ConfigHelper.GetDarkSkyKey()}/{lat},{lon}?exclude=minutely,hourly,alerts";
+            string url = $"{ConfigHelper.GetDarkSkyUrl()}/{ConfigHelper.GetDarkSkyKey()}/{lat},{lon}?exclude=minutely,hourly,alerts&units=si";
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.ContentType = "application/json; charset=utf-8";
 

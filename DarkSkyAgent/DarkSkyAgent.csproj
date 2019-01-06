@@ -47,6 +47,7 @@
     <Compile Include="DarkSkyAgent.cs" />
     <Compile Include="ForecastData.cs" />
     <Compile Include="ForecastResult.cs" />
+    <Compile Include="IDarkSkyAgent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
