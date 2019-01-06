@@ -86,6 +86,8 @@ namespace WeatherForecast.ViewModels
         public void Init()
         {
             Cities = wfModel.ListCities();
+            SelectedCity = Cities.First();
+            LoadWeatherForecast();
         }
     }
 }

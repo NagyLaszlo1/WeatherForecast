@@ -32,7 +32,7 @@ namespace Agents
         {
             get
             {
-                return $"Images/{Icon}.png";
+                return $"../Images/{Icon}.png";
             }
         }
     }

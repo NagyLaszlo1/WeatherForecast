@@ -6,20 +6,10 @@
         xmlns:local="clr-namespace:WeatherForecast"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-        </Grid.RowDefinitions>
+    <DockPanel LastChildFill="True" Margin="10,0,0,0">
 
-        <StackPanel Grid.Row="0" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-            <Label Content="City" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+            <Label Content="City" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <ComboBox HorizontalAlignment="Left"   
              Margin="10,0,0,0"
                   VerticalAlignment="Center"   
@@ -34,19 +24,18 @@
                 Width="75"
                 Command="{Binding WeatherRequestCommand}"/>
         </StackPanel>
-        
-        <Label Grid.Row="1" 
+
+        <Label DockPanel.Dock="Top"
                Content="Current Temperature" 
-               Margin="10,0,0,0" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Center" 
                FontSize="16" 
                FontWeight="Bold"/>
 
-        <Grid Grid.Row="2" >
+        <Grid DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition></ColumnDefinition>
-                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -61,7 +50,7 @@
                 <Label Content="{Binding Path=CurrentForecastData.Temperature}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
                 <Image Source="{Binding Path=CurrentForecastData.IconPath}" Width="50" Height="50" />
             </StackPanel>
-            
+
             <Label Grid.Row="1" Grid.Column="0" Content="Apparent temperature" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=CurrentForecastData.ApparentTemperature}" Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
@@ -79,26 +68,28 @@
 
         </Grid>
 
-        <Label Grid.Row="3" 
+        <Label DockPanel.Dock="Top"
                Content="Daily Temperature" 
-               Margin="10,0,0,0" 
                HorizontalAlignment="Left" 
                VerticalAlignment="Center" 
                FontSize="16" 
                FontWeight="Bold"/>
 
         <DataGrid 
+            DockPanel.Dock="Top"
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             ItemsSource="{Binding DailyForecastData}" 
-            Grid.Row="4"
-            Margin="10,0,0,0"
+            HorizontalScrollBarVisibility="Auto"
+            IsReadOnly="True"
+            ColumnWidth="*"          
+            SelectionMode="Single"
             AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
+                <DataGridTemplateColumn Width="30">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="{Binding IconPath}" Width="50" Height="50" />
+                            <Image Source="{Binding IconPath}" Width="30" Height="30" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -110,7 +101,5 @@
                 <DataGridTextColumn Header="UV index" Binding="{Binding UVIndex}" />
             </DataGrid.Columns>
         </DataGrid>
-
-
-    </Grid>
+    </DockPanel>
 </Window>
