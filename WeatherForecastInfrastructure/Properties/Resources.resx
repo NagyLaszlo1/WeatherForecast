@@ -117,7 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnLanguageChange" xml:space="preserve">
+    <value>Change</value>
+  </data>
+  <data name="btnListWeather" xml:space="preserve">
+    <value>Get</value>
+  </data>
+  <data name="lblApparentTemperature" xml:space="preserve">
+    <value>Apparent temperature</value>
+  </data>
+  <data name="lblAtmosphericPressure" xml:space="preserve">
+    <value>Atmospheric pressure</value>
+  </data>
   <data name="lblCity" xml:space="preserve">
     <value>City</value>
+  </data>
+  <data name="lblHumidity" xml:space="preserve">
+    <value>Humidity</value>
+  </data>
+  <data name="lblLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="lblNotification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="lblTemberature" xml:space="preserve">
+    <value>Temperature</value>
+  </data>
+  <data name="lblTitleCurrentTemperature" xml:space="preserve">
+    <value>Current Temperature</value>
+  </data>
+  <data name="lblTitleDailyTemperature" xml:space="preserve">
+    <value>Daily Temperature</value>
+  </data>
+  <data name="lblUVindex" xml:space="preserve">
+    <value>UV index</value>
+  </data>
+  <data name="lblWindSpeed" xml:space="preserve">
+    <value>Wind speed</value>
+  </data>
+  <data name="msgExceptionOccured" xml:space="preserve">
+    <value>A exception occurred:</value>
+  </data>
+  <data name="msgRestartTheApp" xml:space="preserve">
+    <value>Please, restart the application for changeing the language!</value>
+  </data>
+  <data name="msgTitleException" xml:space="preserve">
+    <value>Exception</value>
+  </data>
+  <data name="tlMainWindow" xml:space="preserve">
+    <value>Weather Forecast</value>
   </data>
 </root>

@@ -117,7 +117,55 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="btnLanguageChange" xml:space="preserve">
+    <value>Módosít</value>
+  </data>
+  <data name="btnListWeather" xml:space="preserve">
+    <value>Lekér</value>
+  </data>
+  <data name="lblApparentTemperature" xml:space="preserve">
+    <value>Érzékelt hőmérséklet</value>
+  </data>
+  <data name="lblAtmosphericPressure" xml:space="preserve">
+    <value>Légköri nyomás</value>
+  </data>
   <data name="lblCity" xml:space="preserve">
     <value>Város</value>
+  </data>
+  <data name="lblHumidity" xml:space="preserve">
+    <value>Páratartalom</value>
+  </data>
+  <data name="lblLanguage" xml:space="preserve">
+    <value>Nyelv</value>
+  </data>
+  <data name="lblNotification" xml:space="preserve">
+    <value>Üzenet</value>
+  </data>
+  <data name="lblTemberature" xml:space="preserve">
+    <value>Hőmérséklet</value>
+  </data>
+  <data name="lblTitleCurrentTemperature" xml:space="preserve">
+    <value>Aktuális hőmérséklet</value>
+  </data>
+  <data name="lblTitleDailyTemperature" xml:space="preserve">
+    <value>Napi hőmérséklet</value>
+  </data>
+  <data name="lblUVindex" xml:space="preserve">
+    <value>UV index</value>
+  </data>
+  <data name="lblWindSpeed" xml:space="preserve">
+    <value>Szélsebesség</value>
+  </data>
+  <data name="msgExceptionOccured" xml:space="preserve">
+    <value>Váratlan hiba lépett fel:</value>
+  </data>
+  <data name="msgRestartTheApp" xml:space="preserve">
+    <value>Kérlek indítsd újra az alkalmazást, a nyelv megváltozásához!</value>
+  </data>
+  <data name="msgTitleException" xml:space="preserve">
+    <value>Hiba</value>
+  </data>
+  <data name="tlMainWindow" xml:space="preserve">
+    <value>Időjárás előrejelzés</value>
   </data>
 </root>

@@ -40,5 +40,17 @@ namespace WeatherForecastInfrastructure.Properties {
                 return ((string)(this["DarkSkyKey"]));
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("en-GB")]
+        public string Language {
+            get {
+                return ((string)(this["Language"]));
+            }
+            set {
+                this["Language"] = value;
+            }
+        }
     }
 }

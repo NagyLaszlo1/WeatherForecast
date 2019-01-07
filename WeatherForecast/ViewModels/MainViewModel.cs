@@ -5,10 +5,13 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using WeatherForecast.Commands;
 using WeatherForecast.Models;
 using WeatherForecast.Models.Entities;
+using WeatherForecastInfrastructure;
+using WeatherForecastInfrastructure.Properties;
 
 namespace WeatherForecast.ViewModels
 {
@@ -110,7 +113,8 @@ namespace WeatherForecast.ViewModels
             {
                 if (SelectedLanguage != null)
                 {
-                    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(SelectedLanguage.Code);
+                    ConfigHelper.SaveLanguage(SelectedLanguage.Code);
+                    MessageBox.Show(Resources.msgRestartTheApp, Resources.lblNotification, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             catch (Exception ex)
@@ -143,7 +147,7 @@ namespace WeatherForecast.ViewModels
                 Cities = wfModel.ListCities();
                 SelectedCity = Cities.First();
                 Languages = wfModel.ListLanguages();
-                SelectedLanguage = Languages.First();
+                SelectedLanguage = Languages.FirstOrDefault(x => x.Code == ConfigHelper.GetLanguage());
                 LoadWeatherForecast();
             }
             catch (Exception ex)

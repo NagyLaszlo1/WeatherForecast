@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Unity;
 using WeatherForecast.Models;
+using WeatherForecastInfrastructure;
 
 namespace WeatherForecast
 {
@@ -18,7 +19,8 @@ namespace WeatherForecast
     {
         public App()
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("hu-HU");
+            System.Threading.Thread.CurrentThread.CurrentUICulture = 
+                new System.Globalization.CultureInfo(ConfigHelper.GetLanguage());
 
             this.DispatcherUnhandledException += App_DispatcherUnhandledException;
             this.Startup += App_Startup;

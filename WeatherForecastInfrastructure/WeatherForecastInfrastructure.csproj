@@ -45,7 +45,6 @@
     <Compile Include="Properties\Resources.hu-HU.Designer.cs">
       <DependentUpon>Resources.hu-HU.resx</DependentUpon>
       <AutoGen>True</AutoGen>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -64,7 +63,6 @@
     <EmbeddedResource Include="Properties\Resources.hu-HU.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.hu-HU.Designer.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -72,6 +70,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

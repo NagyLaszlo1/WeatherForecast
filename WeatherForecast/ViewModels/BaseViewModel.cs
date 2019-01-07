@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using WeatherForecastInfrastructure;
+using WeatherForecastInfrastructure.Properties;
 
 namespace WeatherForecast.ViewModels
 {
@@ -14,7 +15,7 @@ namespace WeatherForecast.ViewModels
 
         protected void HandleException(Exception ex)
         {
-            MessageBox.Show("A exception occurred: " + ex.Message, "Exception", MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Resources.msgExceptionOccured + " " + ex.Message, Resources.msgTitleException, MessageBoxButton.OK, MessageBoxImage.Error);
 
             // TODO - logging
         }
