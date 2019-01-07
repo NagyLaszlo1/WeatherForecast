@@ -10,14 +10,18 @@ namespace WeatherForecastInfrastructure
     {
         public static string GetDarkSkyUrl()
         {
-            // TODO Use AppConfig !!!!
-            return "https://api.darksky.net/forecast";
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.DarkSkyUrl))
+                return Properties.Settings.Default.DarkSkyUrl;
+            else
+                return "https://api.darksky.net/forecast"; // Default Value
         }
 
         public static string GetDarkSkyKey()
         {
-            // TODO Use AppConfig !!!!
-            return "82d6033efe051b1620778e61c8901f3c";
+            if (!string.IsNullOrEmpty(Properties.Settings.Default.DarkSkyKey))
+                return Properties.Settings.Default.DarkSkyKey;
+            else
+                return "82d6033efe051b1620778e61c8901f3c"; // Default Value
         }
     }
 }

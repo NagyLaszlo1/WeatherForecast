@@ -27,7 +27,7 @@ namespace WeatherForecast.ViewModels
             set
             {
                 _cities = value;
-                OnPropertyChanged("Cities"); // TODO -- Repleace buildable property
+                OnPropertyChanged(nameof(Cities));
             }
         }
 
@@ -38,7 +38,29 @@ namespace WeatherForecast.ViewModels
             set
             {
                 _selectedCity = value;
-                OnPropertyChanged("SelectedCity"); // TODO -- Repleace buildable property
+                OnPropertyChanged(nameof(SelectedCity));
+            }
+        }
+
+        private ObservableCollection<Language> _languages;
+        public ObservableCollection<Language> Languages
+        {
+            get { return _languages; }
+            set
+            {
+                _languages = value;
+                OnPropertyChanged(nameof(Languages));
+            }
+        }
+
+        private Language _selectedLanguage;
+        public Language SelectedLanguage
+        {
+            get { return _selectedLanguage; }
+            set
+            {
+                _selectedLanguage = value;
+                OnPropertyChanged(nameof(SelectedLanguage));
             }
         }
 
@@ -49,7 +71,7 @@ namespace WeatherForecast.ViewModels
             set
             {
                 _dailyForecastData = value;
-                OnPropertyChanged("DailyForecastData"); // TODO -- Repleace buildable property
+                OnPropertyChanged(nameof(DailyForecastData));
             }
         }
 
@@ -60,7 +82,7 @@ namespace WeatherForecast.ViewModels
             set
             {
                 _currentForecastData = value;
-                OnPropertyChanged("CurrentForecastData"); // TODO -- Repleace buildable property
+                OnPropertyChanged(nameof(CurrentForecastData));
             }
         }
 
@@ -73,21 +95,61 @@ namespace WeatherForecast.ViewModels
             }
         }
 
+        private ICommand _languageChangeCommand;
+        public ICommand LanguageChangeCommand
+        {
+            get
+            {
+                return _languageChangeCommand ?? (_languageChangeCommand = new ClickCommand(() => ChangeLanguage(), true));
+            }
+        }
+
+        private void ChangeLanguage()
+        {
+            try
+            {
+                if (SelectedLanguage != null)
+                {
+                    System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(SelectedLanguage.Code);
+                }
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
+        }
+
         public void LoadWeatherForecast()
         {
-            if (SelectedCity != null)
+            try
             {
-                var forecastResult = wfModel.LoadWeatherForecast(SelectedCity.Latitude, SelectedCity.Longitude);
-                DailyForecastData = forecastResult.Daily.Data;
-                CurrentForecastData = forecastResult.Currently;
+                if (SelectedCity != null)
+                {
+                    var forecastResult = wfModel.LoadWeatherForecast(SelectedCity.Latitude, SelectedCity.Longitude);
+                    DailyForecastData = forecastResult.Daily.Data;
+                    CurrentForecastData = forecastResult.Currently;
+                }
+            }
+            catch(Exception ex)
+            {
+                HandleException(ex);
             }
         }
 
         public void Init()
         {
-            Cities = wfModel.ListCities();
-            SelectedCity = Cities.First();
-            LoadWeatherForecast();
+            try
+            {
+                Cities = wfModel.ListCities();
+                SelectedCity = Cities.First();
+                Languages = wfModel.ListLanguages();
+                SelectedLanguage = Languages.First();
+                LoadWeatherForecast();
+            }
+            catch (Exception ex)
+            {
+                HandleException(ex);
+            }
         }
     }
 }

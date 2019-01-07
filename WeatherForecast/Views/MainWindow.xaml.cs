@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WeatherForecast.Models;
 using WeatherForecast.ViewModels;
+using WeatherForecastInfrastructure.Properties;
+using Unity.Attributes;
 
 namespace WeatherForecast
 {
@@ -23,15 +25,25 @@ namespace WeatherForecast
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MainViewModel mainViewModel;
+        [Dependency]
+        public MainViewModel ViewModel
+        {
+            set {
+                _viewModel = value;
+                DataContext = value;
+            }
+        }
+
+        private MainViewModel _viewModel;
         public MainWindow()
         {
             InitializeComponent();
+            this.Loaded += MainWindow_Loaded;
+        }
 
-            mainViewModel = new MainViewModel(new WeatherForecastModel(new DarkSkyAgent())); // TODO - Dependency injection
-            this.DataContext = mainViewModel;
-
-            mainViewModel.Init();
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            _viewModel.Init();
         }
     }
 }

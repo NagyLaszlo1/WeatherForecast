@@ -3,27 +3,50 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:res="clr-namespace:WeatherForecastInfrastructure.Properties;assembly=WeatherForecastInfrastructure"
         xmlns:local="clr-namespace:WeatherForecast"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <DockPanel LastChildFill="True" Margin="10,0,0,0">
 
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
-            <Label Content="City" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <ComboBox HorizontalAlignment="Left"   
-             Margin="10,0,0,0"
-                  VerticalAlignment="Center"   
-                  Width="120"   
-                  ItemsSource="{Binding Path=Cities}"    
-                  SelectedItem="{Binding Path=SelectedCity}"  
-                  DisplayMemberPath="Name"/>
-            <Button Content="Go" 
-                    Margin="10,0,0,0"
-                HorizontalAlignment="Left" 
-                VerticalAlignment="Center" 
-                Width="75"
-                Command="{Binding WeatherRequestCommand}"/>
-        </StackPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+                <Label Content="{x:Static res:Resources.lblCity}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                <ComboBox HorizontalAlignment="Left"   
+                 Margin="10,0,0,0"
+                      VerticalAlignment="Center"   
+                      Width="120"   
+                      ItemsSource="{Binding Path=Cities}"    
+                      SelectedItem="{Binding Path=SelectedCity}"  
+                      DisplayMemberPath="Name"/>
+                <Button Content="Go" 
+                        Margin="10,0,0,0"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Width="75"
+                    Command="{Binding WeatherRequestCommand}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+                <Button Content="Change" 
+                        Margin="10,0,0,0"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    Width="75"
+                    Command="{Binding LanguageChangeCommand}"/>
+                <ComboBox HorizontalAlignment="Right"   
+                          Margin="10,0,0,0"
+                      VerticalAlignment="Center"
+                      Width="120"   
+                      ItemsSource="{Binding Path=Languages}"    
+                      SelectedItem="{Binding Path=SelectedLanguage}"
+                      DisplayMemberPath="Name"/>
+                <Label Content="Nyelv" Margin="10,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
 
         <Label DockPanel.Dock="Top"
                Content="Current Temperature" 

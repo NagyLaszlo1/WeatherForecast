@@ -13,5 +13,6 @@ namespace WeatherForecast.Models
     {
         ObservableCollection<City> ListCities();
         ForecastResult LoadWeatherForecast(double lat, double lon);
+        ObservableCollection<Language> ListLanguages();
     }
 }

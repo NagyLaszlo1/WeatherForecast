@@ -17,6 +17,25 @@ namespace WeatherForecast.Models
             darkSkyAgent = dsAgent;
         }
 
+        public ObservableCollection<Language> ListLanguages()
+        {
+            ObservableCollection<Language> languages = new ObservableCollection<Language>();
+
+            languages.Add(new Language
+            {
+                Code = "hu-Hu",
+                Name = "Magyar"
+            });
+
+            languages.Add(new Language
+            {
+                Code = "en-GB",
+                Name = "English"
+            });
+
+            return languages;
+        }
+
         public ObservableCollection<City> ListCities()
         {
             ObservableCollection<City> cities = new ObservableCollection<City>();
