@@ -79,6 +79,15 @@ namespace WeatherForecastInfrastructure.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Invalide language code!.
+        /// </summary>
+        public static string ErrorInvalidLanguageCode {
+            get {
+                return ResourceManager.GetString("ErrorInvalidLanguageCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Apparent temperature.
         /// </summary>
         public static string lblApparentTemperature {
@@ -129,6 +138,15 @@ namespace WeatherForecastInfrastructure.Properties {
         public static string lblNotification {
             get {
                 return ResourceManager.GetString("lblNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Summary.
+        /// </summary>
+        public static string lblSummary {
+            get {
+                return ResourceManager.GetString("lblSummary", resourceCulture);
             }
         }
         

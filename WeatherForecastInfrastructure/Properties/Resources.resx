@@ -123,6 +123,9 @@
   <data name="btnListWeather" xml:space="preserve">
     <value>Get</value>
   </data>
+  <data name="ErrorInvalidLanguageCode" xml:space="preserve">
+    <value>Invalide language code!</value>
+  </data>
   <data name="lblApparentTemperature" xml:space="preserve">
     <value>Apparent temperature</value>
   </data>
@@ -167,5 +170,8 @@
   </data>
   <data name="tlMainWindow" xml:space="preserve">
     <value>Weather Forecast</value>
+  </data>
+  <data name="lblSummary" xml:space="preserve">
+    <value>Summary</value>
   </data>
 </root>

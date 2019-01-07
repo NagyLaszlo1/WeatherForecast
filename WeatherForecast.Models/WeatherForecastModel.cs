@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WeatherForecast.Models.Entities;
+using WeatherForecastInfrastructure;
+using WeatherForecastInfrastructure.Properties;
 
 namespace WeatherForecast.Models
 {
@@ -24,13 +26,15 @@ namespace WeatherForecast.Models
             languages.Add(new Language
             {
                 Code = "hu-Hu",
-                Name = "Magyar"
+                Name = "Magyar",
+                DarkSkyCode = "hu"
             });
 
             languages.Add(new Language
             {
                 Code = "en-GB",
-                Name = "English"
+                Name = "English",
+                DarkSkyCode = "en"
             });
 
             return languages;
@@ -104,7 +108,11 @@ namespace WeatherForecast.Models
 
         public ForecastResult LoadWeatherForecast(double lat, double lon)
         {
-            return darkSkyAgent.GetForecast(lat, lon);
+            Language lang = ListLanguages().FirstOrDefault(x => x.Code == ConfigHelper.GetLanguage());
+            if (lang == null)
+                throw new InvalidOperationException(Resources.ErrorInvalidLanguageCode);
+
+            return darkSkyAgent.GetForecast(lat, lon, lang.DarkSkyCode);
         }
     }
 }

@@ -9,6 +9,6 @@ namespace Agents
 {
     public interface IDarkSkyAgent
     {
-        ForecastResult GetForecast(double lat, double lon);
+        ForecastResult GetForecast(double lat, double lon, string langCode);
     }
 }

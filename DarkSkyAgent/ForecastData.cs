@@ -28,6 +28,9 @@ namespace Agents
         [JsonProperty(PropertyName = "uvIndex")]
         public double UVIndex { get; set; }
 
+        [JsonProperty(PropertyName = "summary")]
+        public string Summary { get; set; }
+
         public string IconPath
         {
             get

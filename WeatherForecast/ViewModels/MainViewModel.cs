@@ -127,7 +127,7 @@ namespace WeatherForecast.ViewModels
         {
             try
             {
-                if (SelectedCity != null)
+                if (SelectedCity != null && SelectedLanguage != null)
                 {
                     var forecastResult = wfModel.LoadWeatherForecast(SelectedCity.Latitude, SelectedCity.Longitude);
                     DailyForecastData = forecastResult.Daily.Data;
