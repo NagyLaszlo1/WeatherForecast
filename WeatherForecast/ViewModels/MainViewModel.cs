@@ -94,7 +94,7 @@ namespace WeatherForecast.ViewModels
         {
             get
             {
-                return _weatherRequestCommand ?? (_weatherRequestCommand = new ClickCommand(() => LoadWeatherForecast(), true));
+                return _weatherRequestCommand ?? (_weatherRequestCommand = new AsyncCommand(LoadWeatherForecast, CanExecuteLoadWeatherForecast, false));
             }
         }
 
@@ -123,13 +123,13 @@ namespace WeatherForecast.ViewModels
             }
         }
 
-        public void LoadWeatherForecast()
+        public async Task LoadWeatherForecast(object parameter)
         {
             try
             {
                 if (SelectedCity != null && SelectedLanguage != null)
                 {
-                    var forecastResult = wfModel.LoadWeatherForecast(SelectedCity.Latitude, SelectedCity.Longitude);
+                    var forecastResult = await wfModel.LoadWeatherForecast(SelectedCity.Latitude, SelectedCity.Longitude);
                     DailyForecastData = forecastResult.Daily.Data;
                     CurrentForecastData = forecastResult.Currently;
                 }
@@ -140,7 +140,12 @@ namespace WeatherForecast.ViewModels
             }
         }
 
-        public void Init()
+        public bool CanExecuteLoadWeatherForecast(object parameter)
+        {
+            return true;
+        }
+
+        public async Task Init()
         {
             try
             {
@@ -148,7 +153,7 @@ namespace WeatherForecast.ViewModels
                 SelectedCity = Cities.First();
                 Languages = wfModel.ListLanguages();
                 SelectedLanguage = Languages.FirstOrDefault(x => x.Code == ConfigHelper.GetLanguage());
-                LoadWeatherForecast();
+                await LoadWeatherForecast(null);
             }
             catch (Exception ex)
             {

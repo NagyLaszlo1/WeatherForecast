@@ -41,9 +41,9 @@ namespace WeatherForecast
             this.Loaded += MainWindow_Loaded;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            _viewModel.Init();
+            await _viewModel.Init();
         }
     }
 }

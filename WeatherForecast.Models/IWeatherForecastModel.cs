@@ -12,7 +12,7 @@ namespace WeatherForecast.Models
     public interface IWeatherForecastModel
     {
         ObservableCollection<City> ListCities();
-        ForecastResult LoadWeatherForecast(double lat, double lon);
+        Task<ForecastResult> LoadWeatherForecast(double lat, double lon);
         ObservableCollection<Language> ListLanguages();
     }
 }

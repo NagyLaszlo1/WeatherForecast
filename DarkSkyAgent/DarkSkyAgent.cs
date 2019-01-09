@@ -12,7 +12,7 @@ namespace Agents
 {
     public class DarkSkyAgent : IDarkSkyAgent
     {
-        public ForecastResult GetForecast(double lat, double lon, string langCode)
+        public async Task<ForecastResult> GetForecast(double lat, double lon, string langCode)
         {
             ForecastResult result = null;
             //"https://api.darksky.net/forecast/82d6033efe051b1620778e61c8901f3c/37.8267,-122.4233";
@@ -21,11 +21,11 @@ namespace Agents
             request.ContentType = "application/json; charset=utf-8";
 
             string jsonResult;
-            HttpWebResponse response = request.GetResponse() as HttpWebResponse;
+            HttpWebResponse response = await request.GetResponseAsync() as HttpWebResponse;
             using (Stream responseStream = response.GetResponseStream())
             {
                 StreamReader reader = new StreamReader(responseStream, Encoding.UTF8);
-                jsonResult = reader.ReadToEnd();
+                jsonResult = await reader.ReadToEndAsync();
             }
 
             result = JsonConvert.DeserializeObject<ForecastResult>(jsonResult, new JsonSerializerSettings()

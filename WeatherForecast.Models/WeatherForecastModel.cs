@@ -106,13 +106,13 @@ namespace WeatherForecast.Models
             return cities;
         }
 
-        public ForecastResult LoadWeatherForecast(double lat, double lon)
+        public async Task<ForecastResult> LoadWeatherForecast(double lat, double lon)
         {
             Language lang = ListLanguages().FirstOrDefault(x => x.Code == ConfigHelper.GetLanguage());
             if (lang == null)
                 throw new InvalidOperationException(Resources.ErrorInvalidLanguageCode);
 
-            return darkSkyAgent.GetForecast(lat, lon, lang.DarkSkyCode);
+            return await darkSkyAgent.GetForecast(lat, lon, lang.DarkSkyCode);
         }
     }
 }
